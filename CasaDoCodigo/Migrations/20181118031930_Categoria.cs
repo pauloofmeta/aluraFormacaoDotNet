@@ -38,8 +38,7 @@ namespace CasaDoCodigo.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Produto_CategoriaId",
                 table: "Produto",
-                column: "CategoriaId",
-                unique: true);
+                column: "CategoriaId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Produto_Categoria_CategoriaId",

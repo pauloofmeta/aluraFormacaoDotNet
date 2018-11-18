@@ -32,7 +32,7 @@ namespace CasaDoCodigo
             modelBuilder.Entity<Cadastro>().HasOne(t => t.Pedido);
 
             modelBuilder.Entity<Categoria>().HasKey(t => t.Id);
-            modelBuilder.Entity<Categoria>().HasOne(t => t.Produto);
+            modelBuilder.Entity<Categoria>().HasMany(t => t.Produtos);
         }
     }
 }

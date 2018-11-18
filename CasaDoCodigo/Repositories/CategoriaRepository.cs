@@ -27,8 +27,10 @@ namespace CasaDoCodigo.Repositories
         public async Task SalveCategoria(string nome)
         {
             if (!dbSet.Where(c => c.Nome.Equals(nome)).Any())
+            {
                 dbSet.Add(new Categoria(nome));
-            await contexto.SaveChangesAsync();
+                await contexto.SaveChangesAsync();
+            }
         }
     }
 }

@@ -149,6 +149,6 @@ namespace CasaDoCodigo.Models
 
         [Required]
         public string Nome { get; set; }
-        public virtual Produto Produto { get; set; }
+        public virtual List<Produto> Produtos { get; set; }
     }
 }

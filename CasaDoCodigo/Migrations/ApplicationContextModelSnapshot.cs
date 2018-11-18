@@ -125,8 +125,7 @@ namespace CasaDoCodigo.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaId")
-                        .IsUnique();
+                    b.HasIndex("CategoriaId");
 
                     b.ToTable("Produto");
                 });
@@ -155,8 +154,8 @@ namespace CasaDoCodigo.Migrations
             modelBuilder.Entity("CasaDoCodigo.Models.Produto", b =>
                 {
                     b.HasOne("CasaDoCodigo.Models.Categoria", "Categoria")
-                        .WithOne("Produto")
-                        .HasForeignKey("CasaDoCodigo.Models.Produto", "CategoriaId")
+                        .WithMany("Produtos")
+                        .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

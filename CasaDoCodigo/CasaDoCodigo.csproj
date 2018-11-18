@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
@@ -6,12 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="middlewares.png" />
-    <None Remove="pipeline.png" />
+    <Compile Remove="Migrations\20181118002659_Categoria.cs" />
+    <Compile Remove="Migrations\20181118002659_Categoria.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\images\produtos\livros.txt" Link="wwwroot\images\produtos\livros.txt" />
+    <None Remove="middlewares.png" />
+    <None Remove="pipeline.png" />
   </ItemGroup>
 
   <ItemGroup>

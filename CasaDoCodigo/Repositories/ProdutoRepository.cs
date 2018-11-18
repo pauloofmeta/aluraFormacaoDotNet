@@ -24,15 +24,20 @@ namespace CasaDoCodigo.Repositories
 
         public void SaveProdutos(List<Livro> livros)
         {
+            int changes = 0;
+
             foreach (var livro in livros)
             {
-                if (!dbSet.Where(p => p.Codigo == livro.Codigo).Any())
+                if (!dbSet.Where(p => p.Codigo.Equals(livro.Codigo, StringComparison.OrdinalIgnoreCase)).Any())
                 {
                     var categoria = ObterCategoria(livro.Categoria);
                     dbSet.Add(new Produto(livro.Codigo, livro.Nome, livro.Preco, categoria));
+                    changes++;
                 }
             }
-            contexto.SaveChanges();
+
+            if (changes > 0)
+                contexto.SaveChanges();
         }
 
         private Categoria ObterCategoria(string nome)

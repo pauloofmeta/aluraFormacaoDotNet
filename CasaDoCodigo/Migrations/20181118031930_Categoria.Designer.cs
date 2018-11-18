@@ -11,7 +11,7 @@ using System;
 namespace CasaDoCodigo.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20181118002659_Categoria")]
+    [Migration("20181118031930_Categoria")]
     partial class Categoria
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -126,8 +126,7 @@ namespace CasaDoCodigo.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaId")
-                        .IsUnique();
+                    b.HasIndex("CategoriaId");
 
                     b.ToTable("Produto");
                 });
@@ -156,8 +155,8 @@ namespace CasaDoCodigo.Migrations
             modelBuilder.Entity("CasaDoCodigo.Models.Produto", b =>
                 {
                     b.HasOne("CasaDoCodigo.Models.Categoria", "Categoria")
-                        .WithOne("Produto")
-                        .HasForeignKey("CasaDoCodigo.Models.Produto", "CategoriaId")
+                        .WithMany("Produtos")
+                        .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
