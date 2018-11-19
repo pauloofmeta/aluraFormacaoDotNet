@@ -24,9 +24,16 @@ namespace CasaDoCodigo.Controllers
             this.itemPedidoRepository = itemPedidoRepository;
         }
 
-        public IActionResult BuscaDeProdutos()
+        public async Task<IActionResult> BuscaDeProdutos(string pesquisa)
         {
-            return View();
+            var model = new BuscaProdutosViewModel();
+
+            if (string.IsNullOrEmpty(pesquisa))
+                model.Produtos = produtoRepository.GetProdutos();
+            else
+                model.Produtos = await produtoRepository.GetProdutos(pesquisa);
+
+            return View(model);
         }
 
         public IActionResult Carrossel()
